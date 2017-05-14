@@ -1,2 +1,8 @@
 # ECG_HackMIT
-Creating an ECG that integrates with a SmartPhone
+In the developing world, there is very limited access to healthcare. At Hacking Medicine at MIT, a team and I put together a solution to bring ECG readings and heart diagnoses to the developing world. We took two major steps:
+
+1) Hardware Development:
+Fellow team members with electrical engineering backgrounds figured out a way to connect a 12 lead ECG directly to a smart phone, which is widely available in third world country clinics. This surprising result came from one of our teams physicians, who travelled to Peru and realized many of the doctors had smart phones but no ECG access. This circuit was designed at the hackathon, and cost only $32 to build
+
+2) AI Diagnosis:
+Another teammate and I took the lead on the diagnosis aspect once the data is read into the phone. We did so by first taking raw data from a research project on over 500 sources of 12 lead ECG readings. From here, we cleaned the data, and took advantage of heart periodicity to compress the data tenfold without losing patternistic recognition, which we checked with onsite cardiologists to be sure we were accurate in our compression. Then I worked on an algorithm to perform timeseries classification of healthy vs unhealthy, which proved to be nontrivial. I worked by compressing the time series comparisons using Dynamic Time Warping, and then took these scalar distance results relating the time series to perform a KNN analysis to try to classify groups of healthy vs unhealthy to then get accurate, onsite predictions, eliminating the problem of having low access to onsite cardiologists in third world countries.
